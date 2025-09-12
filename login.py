@@ -33,6 +33,7 @@ def read_data():
 def write_user(id, towrite):
 	id = str(id)
 	db[id] = towrite
+	write_user_data()
 
 
 def update_version(id, towrite):
@@ -40,17 +41,16 @@ def update_version(id, towrite):
 	db[id]['data']['version'] = VERSION
 
 
-def signup(user, password):
+def signup(user):
 	today = str(date.today())
 	rn = str(int(time.time()))
-	id = len(user) + len(password)
+	id = len(user)
 	if check(id):
 		id = id + 15
 	else:
 		id = id - 15
 	temp = {
 	 'username': user,
-	 'password': password,
 	 'key': 'PLACEHOLDER_KEY',
 	 'id': id,
 	 'logincount': 0,
@@ -78,37 +78,34 @@ def migrate(id):
 	update_version(id, items)
 
 
-def login(user, password):
+def login(user):
+	global item_data
 	rn = str(int(time.time()))
 	user = str(user)
 	read_data()
-	id = int(len(user)) + int(len(password))
+
+	id = int(len(user))
 	if check(id):
 		id = id + 15
 	else:
 		id = id - 15
+
 	id = str(id)
-	print(db)
+	if id not in db.keys():
+		signup(user)
+
 	temp = db[id]
-	if temp['username'] == user and temp['password'] == password:
-		if str(temp['version']) != str(VERSION):
-			print('Account made in old version create new account')
-			exit()
-		global dev
-		dev = int(temp['data']['dev'])
+
+	if temp['username'] == user:
 		item_data = temp['data']['items']
 		temp['logincount'] = int(temp['logincount']) + 1
 		temp['data']['last_login'] = rn
 		write_user(id, temp)
 		return True
-	elif temp['username'] == user and temp['password'] != password:
-		return False
-	else:
-		return False
 
 
-def update(user, password):
-	id = len(user) + len(password)
+def update(user):
+	id = len(user)
 	if check(id):
 		id = id + 15
 	else:

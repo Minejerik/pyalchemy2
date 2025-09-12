@@ -18,6 +18,8 @@ def read_item_data():
 		data = json.load(json_file)
 	return data
 
+rep_data = read_item_data()
+
 def exit_save():
 	login.write_user_data()
 	exit()
@@ -42,13 +44,12 @@ def clear_request():
 
 
 def main():
-	temp = read_item_data()
 	data = login.item_data
 	for i in range(0, len(data)):
-		if data[str(i)] == 1 or login.dev == 1:
-			print('{} {}'.format(temp[str(i)]['name'], i))
+		if data[str(i)] == 1:
+			print('{} {}'.format(rep_data[str(i)]['name'], i))
 
-	rep = input('Recipe 1 2\n')
+	rep = input('\nRecipe 1 2\n')
 
 	if rep == 'reset':
 		clear()
@@ -59,7 +60,7 @@ def main():
 	
 	if len(rep) < 3:
 		clear()
-		print('Invalid recipe12!\n')
+		print('invalid recipe!\n')
 		main()
 	split_rep = sorted(rep.split(' '))
 	split_rep = [int(x) for x in split_rep]
@@ -69,38 +70,31 @@ def main():
 		if data[str(item)] == 0:
 			valid_items = False
 
+	valid_recipe = False
+
 	if valid_items:
 		# fl = fliprep(rep)
 		for i in range(0, len(data)):
-			tt = sorted(temp[str(i)]['recipe'])
+			tt = sorted(rep_data[str(i)]['recipe'])
 			if split_rep == tt:
+				valid_recipe = True
 				data[str(i)] = 1
-				login.update(user, pas)
+				login.update(user)
 				clear()
-				print(temp[str(i)]['name'] + ' unlocked\n')
-	else:
+				print(rep_data[str(i)]['name'] + ' unlocked\n')
+
+	if not valid_recipe:
 		clear()
-		print('Invalid recipe!\n')
+		print('invalid recipe!\n')
+	
 	main()
 
 
 def start():
-	temp = input('[1] Login [2] Sign up\n')
-	read_item_data()
-	clear()
-	if temp == '1':
-		global user
-		global pas
-		user = input('Username?\n')
-		pas = input('Password?\n')
-		temp = login.login(user, pas)
-		if temp == True:
-			main()
-		elif temp == False:
-			print('Wrong Password')
-	elif temp == '2':
-		login.signup(input('Username?\n'), input('Password?\n'))
-		clear()
-		start()
+	global user
+	user = input('Profile name?\n')
+	temp = login.login(user)
+	if temp == True:
+		main()
 
 start()
