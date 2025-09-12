@@ -6,7 +6,6 @@ from os import system, name
 
 filename = 'items.json'
 
-
 def clear():
 	if name == 'nt':
 		_ = system('cls')
@@ -47,7 +46,10 @@ def main():
 	data = login.item_data
 	for i in range(0, len(data)):
 		if data[str(i)] == 1:
-			print('{} {}'.format(rep_data[str(i)]['name'], i))
+			try:
+				print('{} {}'.format(rep_data[str(i)]['name'], i))
+			except:
+				data[str(i)] = 0
 
 	rep = input('\nRecipe 1 2\n')
 
@@ -74,7 +76,7 @@ def main():
 
 	if valid_items:
 		# fl = fliprep(rep)
-		for i in range(0, len(data)):
+		for i in range(0, len(rep_data)):
 			tt = sorted(rep_data[str(i)]['recipe'])
 			if split_rep == tt:
 				valid_recipe = True
@@ -95,6 +97,7 @@ def start():
 	user = input('Profile name?\n')
 	temp = login.login(user)
 	if temp == True:
+		clear()
 		main()
 
 start()
