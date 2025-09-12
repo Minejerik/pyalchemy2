@@ -1,0 +1,190 @@
+{
+    "1": {
+       "name": "water",
+       "recipe": [0,0]
+    },
+    "10": {
+       "name": "gust",
+       "recipe": [9,9]
+    },
+    "11": {
+       "name": "tornado",
+       "recipe": [10,10]
+    },
+    "12": {
+       "name": "rain",
+       "recipe": [4,1]
+    },
+    "13": {
+       "name": "plant",
+       "recipe": [12,3]
+    },
+    "2": {
+       "name": "fire",
+       "recipe": [0,0]
+    },
+    "3": {
+       "name": "earth",
+       "recipe": [0,0]
+    },
+    "4": {
+       "name": "air",
+       "recipe": [0,0]
+    },
+    "5": {
+       "name": "mud",
+       "recipe": [1,3]
+    },
+    "6": {
+       "name": "silt",
+       "recipe": [5,3]
+    },
+    "7": {
+       "name": "land",
+       "recipe": [3,3]
+    },
+    "8": {
+       "name": "fire_tornado",
+       "recipe": [2,11]
+    },
+    "9": {
+       "name": "wind",
+       "recipe": [4,4]
+    },
+    "14": {
+       "recipe": [2,2],
+       "name": "forest_fire"
+    },
+    "15": {
+       "recipe": [5,13],
+       "name": "swamp"
+    },
+    "16": {
+       "recipe": [4,2],
+       "name": "energy"
+    },
+    "17": {
+       "recipe": [16,15],
+       "name": "life"
+    },
+    "18": {
+       "recipe": [12,13],
+       "name": "time"
+    },
+    "19": {
+       "recipe": [18,17],
+       "name": "philosphy"
+    },
+    "20": {
+       "recipe": [17,15],
+       "name": "goblin"
+    },
+    "21": {
+       "recipe": [7,7],
+       "name": "mountain"
+    },
+    "22": {
+       "recipe": [21,4],
+       "name": "cave"
+    },
+    "23": {
+       "recipe": [22,20],
+       "name": "mine"
+    },
+    "24": {
+       "recipe": [23,18],
+       "name": "gold"
+    },
+    "25": {
+       "recipe": [18,24],
+       "name": "human"
+    },
+    "26": {
+       "recipe": [25,24],
+       "name": "royalty"
+    },
+    "27": {
+       "recipe": [7,26],
+       "name": "country"
+    },
+    "28": {
+       "recipe": [27,27],
+       "name": "war"
+    },
+    "29": {
+       "recipe": [28,18],
+       "name": "World War I"
+    },
+    "30": {
+       "recipe": [29,29],
+       "name": "World War II"
+    },
+    "0": {
+       "recipe": [],
+       "name": "TEMP_ITEM_TEST"
+    },
+    "31": {
+       "recipe": [13,18],
+       "name": "tree"
+    },
+    "32": {
+       "recipe": [4,19],
+       "name": "small"
+    },
+    "33": {
+       "recipe": [3,2],
+       "name": "lava"
+    },
+    "34": {
+       "recipe": [33,4],
+       "name": "stone"
+    },
+    "35": {
+       "recipe": [34,34],
+       "name": "wall"
+    },
+    "36": {
+       "recipe": [35,35],
+       "name": "house"
+    },
+    "37": {
+       "recipe": [36,19],
+       "name": "container"
+    },
+    "38": {
+       "recipe": [4,3],
+       "name": "dust"
+    },
+    "39": {
+       "recipe": [38,2],
+       "name": "gunpowder"
+    },
+    "40": {
+       "recipe": [39,37],
+       "name": "bullet"
+    },
+    "41": {
+       "recipe": [40,37],
+       "name": "gun"
+    },
+    "42": {
+       "recipe": [41,25],
+       "name": "corpse"
+    },
+    "43": {
+       "recipe": [42,3],
+       "name": "grave"
+    },
+    "44": {
+       "recipe": [43,25],
+       "name": "sad"
+    },
+    "45": {
+       "recipe": [19,27],
+       "name": "big"
+    },
+    "46": {
+       "recipe": [44,45],
+       "name": "depression"
+    }
+ }
